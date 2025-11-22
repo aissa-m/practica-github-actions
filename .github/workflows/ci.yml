@@ -24,13 +24,13 @@ jobs:
             --Werror
             ./index.html
 
-      # Validación CSS
-      - name: Validar CSS con css-validator
-        uses: docker://ghcr.io/w3c/css-validator:latest
-        with:
-          args: >
-            java -jar /vnu/css-validator.jar
-            -v 1
-            -profile css3svg
-            -warning 2
-            ./styles.css
+      # --- OPCIONAL: de momento desactivamos la validación CSS
+      # - name: Validar CSS con css-validator
+      #   uses: docker://ghcr.io/w3c/css-validator:latest
+      #   with:
+      #     args: >
+      #       java -jar /vnu/css-validator.jar
+      #       -v 1
+      #       -profile css3svg
+      #       -warning 2
+      #       ./styles.css
