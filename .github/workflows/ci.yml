@@ -1,4 +1,4 @@
-name: Validar HTML y CSS
+name: Validar HTML
 
 on:
   push:
@@ -14,23 +14,11 @@ jobs:
       - name: Checkout del código
         uses: actions/checkout@v4
 
-      # Validación HTML
       - name: Validar HTML con w3c-validator
         uses: docker://ghcr.io/validator/validator:latest
         with:
           args: >
-            --user-agent "Validator.nu/LV"
+            java -jar /vnu.jar
             --skip-non-html
             --Werror
-            ./index.html
-
-      # --- OPCIONAL: de momento desactivamos la validación CSS
-      # - name: Validar CSS con css-validator
-      #   uses: docker://ghcr.io/w3c/css-validator:latest
-      #   with:
-      #     args: >
-      #       java -jar /vnu/css-validator.jar
-      #       -v 1
-      #       -profile css3svg
-      #       -warning 2
-      #       ./styles.css
+            index.html
