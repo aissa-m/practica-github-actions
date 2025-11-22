@@ -17,8 +17,4 @@ jobs:
       - name: Validar HTML con w3c-validator
         uses: docker://ghcr.io/validator/validator:latest
         with:
-          args: >
-            java -jar /vnu.jar
-            --skip-non-html
-            --Werror
-            index.html
+          args: java -jar /vnu.jar --skip-non-html --Werror ./index.html
